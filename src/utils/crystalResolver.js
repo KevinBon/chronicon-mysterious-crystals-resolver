@@ -1,4 +1,4 @@
-import { STEP } from '../constants';
+import { STEP, COLOR } from '../constants';
 
 export const moveLeft = (rowIndex) => (grid) => {
     const row = [...grid][rowIndex]
@@ -93,7 +93,7 @@ function makeRandomStep() {
 
 export const getRandomStep = makeRandomStep()
 
-export function resolve(grid, { maxStep = 10, maxTries = 1000 } = {}) {
+export function resolve(grid, { maxStep = 5, maxTries = 10000 } = {}) {
     let currentGrid = Array.from(grid)
     let currentStep = 0
     let currentSteps = []
@@ -130,4 +130,24 @@ export function resolve(grid, { maxStep = 10, maxTries = 1000 } = {}) {
         result.grid = currentGrid
     }
     return result
+}
+
+export function isValid(grid) {
+    const counters = {
+        [COLOR.BLUE]: 0,
+        [COLOR.RED]: 0,
+        [COLOR.YELLOW]: 0
+    }
+
+    for (let y = 0; y < grid.length; y++) {
+        const rows = grid[y];
+        for (let x = 0; x < rows.length; x++) {
+            const color = rows[x]
+            counters[color] += 1
+            if (counters[color] > 3) {
+                return false
+            }
+        }
+    }
+    return true
 }

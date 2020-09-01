@@ -2,10 +2,12 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components'
 import Crystal from './Crystal'
 import { COLOR } from '../constants';
-import { resolve } from '../utils/crystalResolver'
+import { resolve, isValid as isCrystalValid, isSolved as isCrystalSolved } from '../utils/crystalResolver'
+import Result from './Result'
+import Steps from './Steps'
 
 
-const Container = styled.div `
+const CrystalContainer = styled.div `
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
@@ -16,8 +18,8 @@ const Container = styled.div `
 const Actions = styled.div``;
 
 const DEFAULT_GRID = [
-    [COLOR.BLUE, COLOR.BLUE, COLOR.BLUE],
-    [COLOR.RED, COLOR.RED, COLOR.RED],
+    [COLOR.BLUE, COLOR.RED, COLOR.BLUE],
+    [COLOR.RED, COLOR.BLUE, COLOR.RED],
     [COLOR.YELLOW, COLOR.YELLOW, COLOR.YELLOW],
 ]
 
@@ -25,6 +27,14 @@ function Game() {
     const [grid, setGrid] = useState([...DEFAULT_GRID])
     const [resolving, setResolving] = useState(false)
     const [result, setResult] = useState({ state: 'IDLE', steps: [], tries: 0 })
+    const [isValid, setIsValid] = useState(false)
+    const [isSolved, setIsSolved] = useState(false)
+    useEffect(() => {
+        setIsValid(isCrystalValid(grid))
+    }, [grid])
+    useEffect(() => {
+        setIsSolved(isCrystalSolved(grid))
+    }, [grid, isValid])
     // const memoizedCallback = useCallback(
     //     () => {
     //         doSomething(a, b);
@@ -57,15 +67,21 @@ function Game() {
     }
 
     return (
-        <Container>
-            {grid.map((rows, x) => rows.map((color, y) => {
-                return <Crystal key={`x:${x}-y:${y}`}onChange={handleCrystalChange(x, y)} color={color} x={x} y={y} />
-            }))}
+        <div>
+            <CrystalContainer>
+                {grid.map((rows, x) => rows.map((color, y) => {
+                    return <Crystal key={`x:${x}-y:${y}`}onChange={handleCrystalChange(x, y)} color={color} x={x} y={y} />
+                }))}
+            </CrystalContainer>
             <Actions>
-                {JSON.stringify(result)}
-                <button onClick={toggleResolver}>{resolving ? 'Stop' : 'Start' }</button>
+                {isValid ? 'valid' : 'not-valid'}
+                <button onClick={toggleResolver} {...((!isValid || isSolved) && {
+                    disabled: 'disabled'
+                })}>{resolving ? 'Stop' : 'Start'}</button>
             </Actions>
-        </Container>
+            <Result result={result} />
+            {result.steps && result.steps.length && <Steps steps={result.steps} />}
+        </div>
     );
 }
 
