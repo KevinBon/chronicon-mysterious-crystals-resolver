@@ -23,7 +23,7 @@ const DEFAULT_GRID = [
     [COLOR.YELLOW, COLOR.YELLOW, COLOR.YELLOW],
 ]
 
-function Game() {
+function Game({ className }) {
     const [grid, setGrid] = useState([...DEFAULT_GRID])
     const [resolving, setResolving] = useState(false)
     const [result, setResult] = useState({ state: 'IDLE', steps: [], tries: 0 })
@@ -67,21 +67,32 @@ function Game() {
     }
 
     return (
-        <div>
-            <CrystalContainer>
-                {grid.map((rows, x) => rows.map((color, y) => {
-                    return <Crystal key={`x:${x}-y:${y}`}onChange={handleCrystalChange(x, y)} color={color} x={x} y={y} />
-                }))}
-            </CrystalContainer>
-            <Actions>
-                {isValid ? 'valid' : 'not-valid'}
-                <button onClick={toggleResolver} {...((!isValid || isSolved) && {
-                    disabled: 'disabled'
-                })}>{resolving ? 'Stop' : 'Start'}</button>
-            </Actions>
-            <Result result={result} />
-            {result.steps && result.steps.length && <Steps steps={result.steps} />}
-        </div>
+            <div className={`${className} rounded overflow-hidden shadow-lg`}>
+                <CrystalContainer className="w-full">
+                    {grid.map((rows, x) => rows.map((color, y) => {
+                        return <Crystal key={`x:${x}-y:${y}`} onChange={handleCrystalChange(x, y)} color={color} x={x} y={y} />
+                    }))}
+                </CrystalContainer>
+                {/* <img  src="/img/card-top.jpg" alt="Sunset in the mountains"> */}
+                <div className="px-6 py-4">
+
+                    <Actions>
+                        <button className="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded" onClick={toggleResolver} {...((!isValid || isSolved) && {
+                            disabled: 'disabled'
+                        })}>{(!isValid && 'Not valid') || (resolving ? 'Running...' : 'Run')}</button>
+                    </Actions>
+                    {/* <Result result={result} /> */}
+                        {/* <div className="font-bold text-xl mb-2">The Coldest Sunset</div>
+                        <p className="text-gray-700 text-base">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.
+                        </p> */}
+                </div>
+                <div className="px-6 pb-2">
+                    {result.steps && result.steps.length && <Steps steps={result.steps} />}
+                </div>
+
+            </div>
+            
     );
 }
 

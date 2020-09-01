@@ -2,15 +2,21 @@ import React from 'react';
 import styled from 'styled-components'
 import { COLOR } from '../constants'
 
-const Container = styled.div`
-  background: ${props => props.color};
-`;
-
 export const COLORS_ORDER = [
   COLOR.RED,
   COLOR.BLUE,
   COLOR.YELLOW
 ]
+
+export const COLORS_CLASSNAMES = {
+  [COLOR.BLUE]: 'bg-blue-500',
+  [COLOR.RED]: 'bg-red-500',
+  [COLOR.YELLOW]: 'bg-yellow-500'
+}
+
+const Container = styled.div`
+  min-height: 100px;
+`
 
 export const COLORS_ORDER_BY_KEY = COLORS_ORDER.reduce((memo, color, index) => ({
   ...memo,
@@ -26,15 +32,11 @@ function Crystal({ color = COLOR.RED, onChange, x, y }) {
     onChange(newColor)
   }
 
+  const colorBasedClassName = COLORS_CLASSNAMES[color]
+
   return (
-    <Container onClick={handleClick} color={color}>
+    <Container onClick={handleClick} className={`${colorBasedClassName} text-white`}>
       {color}
-      <div>
-        x: {x}
-      </div>
-      <div>
-        y: {y}
-      </div>
     </Container>
   );
 }
