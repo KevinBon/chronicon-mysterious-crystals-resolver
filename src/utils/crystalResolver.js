@@ -93,7 +93,7 @@ function makeRandomStep() {
 
 export const getRandomStep = makeRandomStep()
 
-export function resolve(grid, { maxStep = 5, maxTries = 10000 } = {}) {
+export function resolve(grid, { maxStep = 5, maxTries = 20000 } = {}) {
     let currentGrid = Array.from(grid)
     let currentStep = 0
     let currentSteps = []
