@@ -43,14 +43,12 @@ function Game({ className }) {
     // );
     // const [countTries, setCurrentCountTries] = useState(0)
     useEffect(() => {
-        console.log('effecting', resolving);
         if (resolving) {
             const { grid: _grid, ...resolveResult } = resolve(grid)
             if (resolveResult.state === 'WIN') {
                 setGrid(_grid)
             }
             setResult({ ...resolveResult })
-            console.log({ resolveResult }, _grid);
             setResolving(false)
         }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -70,7 +68,7 @@ function Game({ className }) {
             <div className={`${className} rounded overflow-hidden shadow-lg`}>
                 <CrystalContainer className="w-full">
                     {grid.map((rows, x) => rows.map((color, y) => {
-                        return <Crystal key={`x:${x}-y:${y}`} onChange={handleCrystalChange(x, y)} color={color} x={x} y={y} />
+                        return <Crystal className="flex justify-center items-center" key={`x:${x}-y:${y}`} onChange={handleCrystalChange(x, y)} color={color} />
                     }))}
                 </CrystalContainer>
                 {/* <img  src="/img/card-top.jpg" alt="Sunset in the mountains"> */}
@@ -88,7 +86,7 @@ function Game({ className }) {
                         </p> */}
                 </div>
                 <div className="px-6 pb-2">
-                    {result.steps && result.steps.length && <Steps steps={result.steps} />}
+                    {result.steps && result.steps.length ? <Steps steps={result.steps} /> : null}
                 </div>
 
             </div>

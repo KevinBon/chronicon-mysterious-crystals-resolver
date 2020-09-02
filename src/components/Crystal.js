@@ -23,7 +23,7 @@ export const COLORS_ORDER_BY_KEY = COLORS_ORDER.reduce((memo, color, index) => (
   [color]: index
 }), {})
 
-function Crystal({ color = COLOR.RED, onChange, x, y }) {
+function Crystal({ color = COLOR.RED, onChange, className }) {
 
   const handleClick = () => {
     const currentColorIndex = COLORS_ORDER_BY_KEY[color]
@@ -35,7 +35,7 @@ function Crystal({ color = COLOR.RED, onChange, x, y }) {
   const colorBasedClassName = COLORS_CLASSNAMES[color]
 
   return (
-    <Container onClick={handleClick} className={`${colorBasedClassName} text-white`}>
+    <Container onClick={handleClick} className={`${colorBasedClassName} rounded text-white ${className}`}>
       {color}
     </Container>
   );

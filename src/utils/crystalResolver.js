@@ -93,7 +93,15 @@ function makeRandomStep() {
 
 export const getRandomStep = makeRandomStep()
 
-export function resolve(grid, { maxStep = 5, maxTries = 20000 } = {}) {
+const indexSteps = (steps = []) => steps.reduce((memo, step, index) => {
+    if (!(step in memo)) {
+        memo[step] = []
+    }
+    memo[step].push(index + 1)
+    return memo
+}, {})
+
+export function resolve(grid, { maxStep = 5, maxTries = 20000, stepsAsIndexed = true } = {}) {
     let currentGrid = Array.from(grid)
     let currentStep = 0
     let currentSteps = []
@@ -126,8 +134,9 @@ export function resolve(grid, { maxStep = 5, maxTries = 20000 } = {}) {
         
     }
     if (result.state === 'WIN') {
-        result.steps = currentSteps
+        result.steps = stepsAsIndexed ? indexSteps(currentSteps) : currentSteps
         result.grid = currentGrid
+     
     }
     return result
 }

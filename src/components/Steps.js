@@ -19,7 +19,7 @@ const StepItem = ({ step }) => {
     const [direction, number] = step.split('_')
     return (
         <React.Fragment>
-            <span class="mr-2">{DIRECTION_MAPPER[direction]}</span>
+            <span className="mr-2">{DIRECTION_MAPPER[direction]}</span>
             <span>{NUMBER_MAPPER[number]}</span>
         </React.Fragment>
     )
