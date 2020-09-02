@@ -3,8 +3,6 @@ import styled from 'styled-components'
 import Crystal from './Crystal'
 import { COLOR, STEP } from '../constants';
 import { resolve, isValid as isCrystalValid, isSolved as isCrystalSolved } from '../utils/crystalResolver'
-import Steps from './Steps'
-
 
 const CrystalContainer = styled.div`
     display: grid;
