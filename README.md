@@ -5,4 +5,10 @@
 
 ![demo](/doc/demo.gif)
 
+## Instructions
+
+1. Match the crystals colors by clicking on the color blocks.
+2. Click `run`.
+3. The sequence solution is now showing up, follow them by numerical order.
+
 PS: This game is great!
