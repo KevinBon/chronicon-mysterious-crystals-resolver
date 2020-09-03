@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/chronicon-mysterious-crystal-resolver/static/css/main.145295da.chunk.css",
-    "main.js": "/chronicon-mysterious-crystal-resolver/static/js/main.b74444a2.chunk.js",
-    "main.js.map": "/chronicon-mysterious-crystal-resolver/static/js/main.b74444a2.chunk.js.map",
+    "main.js": "/chronicon-mysterious-crystal-resolver/static/js/main.70b36e2c.chunk.js",
+    "main.js.map": "/chronicon-mysterious-crystal-resolver/static/js/main.70b36e2c.chunk.js.map",
     "runtime-main.js": "/chronicon-mysterious-crystal-resolver/static/js/runtime-main.f26bd38d.js",
     "runtime-main.js.map": "/chronicon-mysterious-crystal-resolver/static/js/runtime-main.f26bd38d.js.map",
     "static/js/2.1fb06126.chunk.js": "/chronicon-mysterious-crystal-resolver/static/js/2.1fb06126.chunk.js",
     "static/js/2.1fb06126.chunk.js.map": "/chronicon-mysterious-crystal-resolver/static/js/2.1fb06126.chunk.js.map",
     "index.html": "/chronicon-mysterious-crystal-resolver/index.html",
-    "precache-manifest.fc903c4c976dbf1207a67adf71c7bbb5.js": "/chronicon-mysterious-crystal-resolver/precache-manifest.fc903c4c976dbf1207a67adf71c7bbb5.js",
+    "precache-manifest.7f9bb0ba125124ae63007cbdc67d4fc6.js": "/chronicon-mysterious-crystal-resolver/precache-manifest.7f9bb0ba125124ae63007cbdc67d4fc6.js",
     "service-worker.js": "/chronicon-mysterious-crystal-resolver/service-worker.js",
     "static/css/main.145295da.chunk.css.map": "/chronicon-mysterious-crystal-resolver/static/css/main.145295da.chunk.css.map",
     "static/js/2.1fb06126.chunk.js.LICENSE.txt": "/chronicon-mysterious-crystal-resolver/static/js/2.1fb06126.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.f26bd38d.js",
     "static/js/2.1fb06126.chunk.js",
     "static/css/main.145295da.chunk.css",
-    "static/js/main.b74444a2.chunk.js"
+    "static/js/main.70b36e2c.chunk.js"
   ]
 }

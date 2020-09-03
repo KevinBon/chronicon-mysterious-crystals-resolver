@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/chronicon-mysterious-crystal-resolver/precache-manifest.fc903c4c976dbf1207a67adf71c7bbb5.js"
+  "/chronicon-mysterious-crystal-resolver/precache-manifest.7f9bb0ba125124ae63007cbdc67d4fc6.js"
 );
 
 self.addEventListener('message', (event) => {

@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "c4c4debf710cc9cff518a90409742a50",
+    "revision": "b3e3d8f8e0022837465c6308300dd767",
     "url": "/chronicon-mysterious-crystal-resolver/index.html"
   },
   {
-    "revision": "b226e0539fbbaab58e2d",
+    "revision": "d9998c1ae00397a727ad",
     "url": "/chronicon-mysterious-crystal-resolver/static/css/main.145295da.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/chronicon-mysterious-crystal-resolver/static/js/2.1fb06126.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "b226e0539fbbaab58e2d",
-    "url": "/chronicon-mysterious-crystal-resolver/static/js/main.b74444a2.chunk.js"
+    "revision": "d9998c1ae00397a727ad",
+    "url": "/chronicon-mysterious-crystal-resolver/static/js/main.70b36e2c.chunk.js"
   },
   {
     "revision": "4a5134fb5ec7026196bf",
