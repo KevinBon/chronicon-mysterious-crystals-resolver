@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "b3e3d8f8e0022837465c6308300dd767",
+    "revision": "85531bb97f23025faba8d41853a35207",
     "url": "/chronicon-mysterious-crystal-resolver/index.html"
   },
   {
