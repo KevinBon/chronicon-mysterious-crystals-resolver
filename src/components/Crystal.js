@@ -35,7 +35,7 @@ function Crystal({ color = COLOR.RED, onChange, className }) {
   const colorBasedClassName = COLORS_CLASSNAMES[color]
 
   return (
-    <Container onClick={handleClick} className={`${colorBasedClassName} rounded text-white ${className}`}>
+    <Container onClick={handleClick} className={`${colorBasedClassName} select-none cursor-pointer rounded text-white ${className}`}>
       {color}
     </Container>
   );
